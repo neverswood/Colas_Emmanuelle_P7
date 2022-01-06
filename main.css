@@ -1,0 +1,85 @@
+.row {
+  border-bottom: 10px solid white;
+}
+
+#header-logo {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+#searchbar {
+  width: 100%;
+  background-color: rgb(224, 221, 221);
+  border: none;
+  border-radius: 5px 0 0 5px;
+  height: 50px;
+}
+.search label {
+  width: 100%;
+  display: flex;
+}
+
+#btnSearch {
+  background-color: rgb(224, 221, 221);
+  border: none;
+  border-radius: 0 5px 5px 0;
+  width: 30px;
+}
+
+#btnSearch i {
+  color: black;
+}
+
+/* dropdown */
+
+.dropdown {
+  color: white;
+  display: flex;
+  height: 70px;
+}
+
+.dropdown_listbox {
+  height: 60px;
+  width: 135px;
+  margin: 0 30px 0 0;
+  border-radius: 5px;
+}
+
+.dropdown-listbox__name {
+  display: flex;
+  align-items: center;
+  margin: 18px 0;
+}
+
+.dropdown_listbox i {
+  position: absolute;
+  right: 10px;
+  top: 22px;
+}
+
+.ingredients {
+  background-color: rgb(35, 119, 245);
+}
+
+.device {
+  background-color: rgb(151, 229, 151);
+}
+
+.utensils {
+  background-color: tomato;
+}
+
+.search-ingredients,
+.search-device,
+.search-utensils {
+  display: none;
+}
+
+.dropdown-listbox__name-close {
+  display: none;
+}
+
+.search-open {
+  display: block;
+}
