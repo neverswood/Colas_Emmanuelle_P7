@@ -1,15 +1,22 @@
-import { recipes } from "./recipes.js";
+import { recipes } from "./data/recipes.js";
 
-async function searchKeyword() {
-  const allRecipes = recipes[index];
-  for (let i = 0; i < recipes.length; i++) {
-    const containerRecipe = document.getElementById("container-recipe");
-    const divRecipe = document.createElement("div");
-    const templateRecipe = `
+function displayIngredients(ingredients) {
+  let item = "";
+  for (let index = 0; index < ingredients.length; index++) {
+    item += `<li>${ingredients[index].ingredient}
+    <span>${ingredients[index].quantity} ${ingredients[index].unit}</span></li>`;
+  }
+  return item;
+}
+
+function displayRecipes(recipe) {
+  const containerRecipe = document.getElementById("container-recipe");
+  const divRecipe = document.createElement("div");
+  const templateRecipe = `
         <div class="recipe__total">
         <div class="recipe__header">
         <h3></h3>
-        <span>${recipes.name}</span>
+        <span>${recipe.name}</span>
         </div>
         <div>
         <div class="recipe__ingrédients">
@@ -20,16 +27,13 @@ async function searchKeyword() {
         </div>
         </div>
         `;
-    containerRecipe.appendChild(divRecipe);
-    divRecipe.innerHTML = templateRecipe;
-    console.log(allRecipes);
-  }
-
-  /*const searchbar = document.getElementById("searchbar");
-  if (searchbar.value.length < 3) {
-  }*/
+  containerRecipe.appendChild(divRecipe);
+  divRecipe.innerHTML = templateRecipe;
+  console.log(allRecipes);
 }
 
-searchKeyword();
+/*const searchbar = document.getElementById("searchbar");
+  if (searchbar.value.length < 3) {
+  }*/
 
 console.log(recipes);
