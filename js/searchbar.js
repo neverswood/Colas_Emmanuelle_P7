@@ -15,22 +15,31 @@ function displayRecipes(recipe) {
   const templateRecipe = `
         <div class="recipe__total">
         <div class="recipe__header">
-        <h3></h3>
-        <span>${recipe.name}</span>
+        <h3>${recipe.name}</h3>
+        <span><i class="far fa-clock"></i> ${recipe.time}</span>
         </div>
         <div>
         <div class="recipe__ingrédients">
-        <p>ingredient: </p>
-        <span>quantity unit</span>
+        ${displayIngredients(recipe.ingredients)}
         </div>
-        <div class="recipe__explanations"></div>
+        <div class="recipe__explanations">
+        ${recipe.description}</div>
         </div>
         </div>
         `;
   containerRecipe.appendChild(divRecipe);
   divRecipe.innerHTML = templateRecipe;
-  console.log(allRecipes);
 }
+
+function index() {
+  for (let index = 0; index < recipes.length; index++) {
+    // recipes est un tableau
+    // recipes[i] est l'element courant du tableau
+    displayRecipes(recipes[index]);
+  }
+}
+
+index();
 
 /*const searchbar = document.getElementById("searchbar");
   if (searchbar.value.length < 3) {
