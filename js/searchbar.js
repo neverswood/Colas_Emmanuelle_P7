@@ -1,35 +1,70 @@
 import { recipes } from "./data/recipes.js";
 
 function displayIngredients(ingredients) {
-  let item = "";
+  let item = ""; // si unit est vide rien mettre
   for (let index = 0; index < ingredients.length; index++) {
-    item += `<li>${ingredients[index].ingredient}
-    <span>${ingredients[index].quantity} ${ingredients[index].unit}</span></li>`;
+    item += `<li>${ingredients[index].ingredient}: 
+    <span>${ingredients[index].quantity ?? ""} ${
+      ingredients[index].unit ?? ""
+    }</span></li>`;
   }
   return item;
 }
+//}
 
 function displayRecipes(recipe) {
-  const containerRecipe = document.getElementById("container-recipe");
-  const divRecipe = document.createElement("div");
+  const containerRecipe = document.getElementById("container-item");
+  const containerDiv = document.createElement("div");
   const templateRecipe = `
-        <div class="recipe__total">
+        <div class="col container-item__recipe" id="${recipe.id}">
+        <div class="divEmpty"></div>
+        <div class="recipe">
         <div class="recipe__header">
         <h3>${recipe.name}</h3>
-        <span><i class="far fa-clock"></i> ${recipe.time}</span>
+        <span><i class="far fa-clock"></i> ${recipe.time} min</span>
         </div>
-        <div>
+        <div class="recipe__explanation">
         <div class="recipe__ingrédients">
         ${displayIngredients(recipe.ingredients)}
         </div>
-        <div class="recipe__explanations">
+        <div class="recipe__description">
         ${recipe.description}</div>
         </div>
         </div>
+        </div>
         `;
-  containerRecipe.appendChild(divRecipe);
-  divRecipe.innerHTML = templateRecipe;
+  containerRecipe.appendChild(containerDiv);
+  containerDiv.innerHTML = templateRecipe;
 }
+
+function keyWord(ingredients) {
+  let inputSearch = document.getElementById("searchbar");
+  inputSearch.addEventListener("keyup", () => {
+    console.log(inputSearch.value);
+    if (inputSearch.value.length >= 3) {
+      for (let index = 0; index < recipes.length; index++) {
+        const nameRecipeExist = recipes[index].name
+          .toLowerCase()
+          .indexOf(inputSearch.value.toLowerCase());
+        //for (let index = 0; index < ingredients.length; index++) {
+        //console.log("ing", recipes[index].ingredients[index].ingredient);
+        //}
+        /*const ingredientRecipeExist = recipes[index].ingredients[
+          index
+        ].ingredient
+          .toLowerCase()
+          .indexOf(inputSearch.value.toLowerCase());*/
+        if (nameRecipeExist == -1) {
+          document.getElementsByClassName("container-item__recipe")[
+            index
+          ].style.display = "none";
+        }
+      }
+    }
+  });
+  console.log(inputSearch);
+}
+console.log(document.getElementsByClassName("container-item__recipe"));
 
 function index() {
   for (let index = 0; index < recipes.length; index++) {
@@ -37,12 +72,9 @@ function index() {
     // recipes[i] est l'element courant du tableau
     displayRecipes(recipes[index]);
   }
+  keyWord();
 }
 
 index();
-
-/*const searchbar = document.getElementById("searchbar");
-  if (searchbar.value.length < 3) {
-  }*/
 
 console.log(recipes);
