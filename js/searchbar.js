@@ -28,7 +28,7 @@ function displayRecipes(recipe) {
         ${displayIngredients(recipe.ingredients)}
         </div>
         <div class="recipe__description">
-        ${recipe.description}</div>
+        ${recipe.description}...</div>
         </div>
         </div>
         </div>
@@ -46,6 +46,9 @@ function keyWord(ingredients) {
         const nameRecipeExist = recipes[index].name
           .toLowerCase()
           .indexOf(inputSearch.value.toLowerCase());
+        const descriptionRecipeExist = recipes[index].description
+          .toLowerCase()
+          .indexOf(inputSearch.value.toLowerCase());
         //for (let index = 0; index < ingredients.length; index++) {
         //console.log("ing", recipes[index].ingredients[index].ingredient);
         //}
@@ -54,7 +57,7 @@ function keyWord(ingredients) {
         ].ingredient
           .toLowerCase()
           .indexOf(inputSearch.value.toLowerCase());*/
-        if (nameRecipeExist == -1) {
+        if (nameRecipeExist == -1 && descriptionRecipeExist == -1) {
           document.getElementsByClassName("container-item__recipe")[
             index
           ].style.display = "none";

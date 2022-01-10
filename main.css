@@ -103,6 +103,7 @@
 }
 
 .recipe {
+  line-height: 1.2;
   background-color: #e7e7e7;
   height: 178px;
   width: 380px;
@@ -145,4 +146,9 @@
   width: 171px;
   height: 109px;
   font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  display: -webkit-box;
 }
