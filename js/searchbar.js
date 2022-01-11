@@ -1,7 +1,7 @@
 import { recipes } from "./data/recipes.js";
 
 function displayIngredients(ingredients) {
-  let item = ""; // si unit est vide rien mettre
+  let item = "";
   for (let index = 0; index < ingredients.length; index++) {
     item += `<li>${ingredients[index].ingredient}: 
     <span>${ingredients[index].quantity ?? ""} ${
@@ -50,25 +50,32 @@ function keyWord(ingredients) {
         const descriptionRecipeExist = recipes[index].description
           .toLowerCase()
           .indexOf(inputSearch.value.toLowerCase());
-        //for (let index = 0; index < ingredients.length; index++) {
-        //console.log("ing", recipes[index].ingredients[index].ingredient);
-        //}
-        /*const ingredientRecipeExist = recipes[index].ingredients[
-          index
-        ].ingredient
-          .toLowerCase()
-          .indexOf(inputSearch.value.toLowerCase());*/
         if (nameRecipeExist == -1 && descriptionRecipeExist == -1) {
-          document.getElementsByClassName("container-item__recipe")[
-            index
-          ].style.display = "none";
+          document.getElementsByClassName("col-md-4")[index].style.display =
+            "none";
+          let containerItem = document.getElementById("container-item");
+          let message = document.createElement("div");
+          message.innerHTML =
+            "Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc.";
+          containerItem.appendChild(message);
         }
+        console.log(nameRecipeExist.length);
+        //else if (nameRecipeExist.length == -1) {// rien ne correspond, creer div et écris blabla
+        // console.log("lol");
+        ///}
       }
+      /*console.log(ingredients.length);
+      for (let index = 0; index < ingredients.length; index++) {
+        const ingredientRecipeExist = ingredients[index].ingredient;
+        console.log("ingrdient");
+      }*/
     }
   });
   console.log(inputSearch);
 }
 console.log(document.getElementsByClassName("container-item__recipe"));
+
+function dropdown() {}
 
 function index() {
   for (let index = 0; index < recipes.length; index++) {
@@ -77,8 +84,7 @@ function index() {
     displayRecipes(recipes[index]);
   }
   keyWord();
+  dropdown();
 }
 
 index();
-
-console.log(recipes);
