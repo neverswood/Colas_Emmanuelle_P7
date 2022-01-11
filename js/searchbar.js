@@ -15,8 +15,9 @@ function displayIngredients(ingredients) {
 function displayRecipes(recipe) {
   const containerRecipe = document.getElementById("container-item");
   const containerDiv = document.createElement("div");
+  containerDiv.setAttribute("class", "col-md-4");
   const templateRecipe = `
-        <div class="col container-item__recipe" id="${recipe.id}">
+        <div class="container-item__recipe" id="${recipe.id}">
         <div class="divEmpty"></div>
         <div class="recipe">
         <div class="recipe__header">
