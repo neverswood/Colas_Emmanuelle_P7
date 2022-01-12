@@ -81,9 +81,9 @@ function dropdown() {
     document.getElementById("search-ingredients").style.display = "block";
     document.querySelector(".dropdown-listbox__name").style.display = "none";
     displayIngredients();
-    let ul = document.getElementById("ul");
-    let templateIngredient = ``;
-    ul.innerHTML = displayIngredients();
+    const listbox = document.getElementById("listbox-ingredients");
+    const ulListbox = document.createElement("ul");
+    ulListbox.innerHTML = displayIngredients(ingredients);
   });
 }
 
