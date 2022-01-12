@@ -75,7 +75,17 @@ function keyWord(ingredients) {
 }
 console.log(document.getElementsByClassName("container-item__recipe"));
 
-function dropdown() {}
+function dropdown() {
+  let dropdownIngredients = document.getElementById("dropdownIngredients");
+  dropdownIngredients.addEventListener("click", () => {
+    document.getElementById("search-ingredients").style.display = "block";
+    document.querySelector(".dropdown-listbox__name").style.display = "none";
+    displayIngredients();
+    let ul = document.getElementById("ul");
+    let templateIngredient = ``;
+    ul.innerHTML = displayIngredients();
+  });
+}
 
 function index() {
   for (let index = 0; index < recipes.length; index++) {
