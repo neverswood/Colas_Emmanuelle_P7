@@ -75,6 +75,12 @@
   background-color: rgb(151, 229, 151);
 }
 
+.deviceOpen {
+  background-color: rgb(151, 229, 151);
+  max-width: 667px;
+  height: 397px;
+}
+
 .utensils {
   background-color: tomato;
 }
