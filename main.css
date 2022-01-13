@@ -79,10 +79,12 @@
   background-color: rgb(151, 229, 151);
   max-width: 667px;
   height: 397px;
+  z-index: 1;
 }
 
 .utensils {
   background-color: tomato;
+  z-index: 1;
 }
 
 .search-ingredients,
