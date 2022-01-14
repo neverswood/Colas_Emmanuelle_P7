@@ -82,6 +82,13 @@
   z-index: 1;
 }
 
+.utensilsOpen {
+  background-color: tomato;
+  max-width: 667px;
+  height: 397px;
+  z-index: 1;
+}
+
 .utensils {
   background-color: tomato;
   z-index: 1;

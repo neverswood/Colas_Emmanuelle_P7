@@ -92,7 +92,50 @@ console.log(document.getElementsByClassName("container-item__recipe"));
     console.log();
   });
 }*/
+///////////////////////////////////////
 
+function getUtensils() {
+  let ustensilsByRecipes = [];
+  for (let index = 0; index < recipes.length; index++) {
+    ustensilsByRecipes.push(recipes[index].ustensils);
+  }
+  const allUstensils = ustensilsByRecipes.flat();
+
+  return new Set(allUstensils);
+}
+
+function getItemUtensil(utensils) {
+  let item = "";
+  for (let index = 0; index < utensils.length; index++) {
+    item += `<li>${utensils[index]}</li>`;
+  }
+  return item;
+}
+
+var dropdownUtensilsIsClosed = true;
+
+function dropdownUtensils(utens) {
+  const dropdownUtensils = document.getElementById("dropdownUtensils");
+  const listBox = document.getElementById("listbox-utensils");
+  dropdownUtensils.addEventListener("click", (e) => {
+    if (dropdownUtensilsIsClosed) {
+      dropdownUtensilsIsClosed = false;
+      const utensils = [...new Set(getUtensils())];
+      document.getElementById("search-utensils").style.display = "block";
+      document.getElementById("listbox-nameUtensils").style.display = "none";
+      dropdownUtensils.classList.add("utensilsOpen");
+      listBox.innerHTML = `<ul>${getItemUtensil(utensils)}</ul>`;
+    } else {
+      dropdownUtensilsIsClosed = true;
+      document.getElementById("search-utensils").style.display = "none";
+      document.getElementById("listbox-nameUtensils").style.display = "block";
+      dropdownUtensils.classList.remove("utensilsOpen");
+      listBox.innerHTML = "";
+    }
+  });
+}
+
+/////////////////////////////////
 function getAppliances() {
   let appliances = new Set();
   for (let index = 0; index < recipes.length; index++) {
@@ -125,6 +168,7 @@ function dropdownDevice() {
     console.log(getItemAppliance(Array.from(appliances)));
   });
 }
+///////////////////////////////////
 
 function index() {
   for (let index = 0; index < recipes.length; index++) {
@@ -135,6 +179,7 @@ function index() {
   keyWord();
   //dropdown();
   dropdownDevice();
+  dropdownUtensils();
 }
 
 index();
