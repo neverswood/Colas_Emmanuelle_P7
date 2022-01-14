@@ -114,9 +114,8 @@ function getItemUtensil(utensils) {
 
 var dropdownUtensilsIsClosed = true;
 
-function dropdownUtensils(utens) {
+function dropdownUtensils() {
   const dropdownUtensils = document.getElementById("listbox-nameUtensils");
-  const searchUtensils = document.getElementById("search-utensils");
   const chevron = document.getElementById("chevron");
   const listBox = document.getElementById("listbox-utensils");
   dropdownUtensils.addEventListener("click", (e) => {
