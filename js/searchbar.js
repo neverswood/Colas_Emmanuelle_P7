@@ -115,23 +115,24 @@ function getItemUtensil(utensils) {
 var dropdownUtensilsIsClosed = true;
 
 function dropdownUtensils(utens) {
-  const dropdownUtensils = document.getElementById("dropdownUtensils");
+  const dropdownUtensils = document.getElementById("listbox-nameUtensils");
+  const searchUtensils = document.getElementById("search-utensils");
+  const chevron = document.getElementById("chevron");
   const listBox = document.getElementById("listbox-utensils");
   dropdownUtensils.addEventListener("click", (e) => {
-    if (dropdownUtensilsIsClosed) {
-      dropdownUtensilsIsClosed = false;
-      const utensils = [...new Set(getUtensils())];
-      document.getElementById("search-utensils").style.display = "block";
-      document.getElementById("listbox-nameUtensils").style.display = "none";
-      dropdownUtensils.classList.add("utensilsOpen");
-      listBox.innerHTML = `<ul>${getItemUtensil(utensils)}</ul>`;
-    } else {
-      dropdownUtensilsIsClosed = true;
-      document.getElementById("search-utensils").style.display = "none";
-      document.getElementById("listbox-nameUtensils").style.display = "block";
-      dropdownUtensils.classList.remove("utensilsOpen");
-      listBox.innerHTML = "";
-    }
+    dropdownUtensilsIsClosed = false;
+    const utensils = [...new Set(getUtensils())];
+    document.getElementById("search-utensils").style.display = "block";
+    document.getElementById("listbox-nameUtensils").style.display = "none";
+    dropdownUtensils.classList.add("utensilsOpen");
+    listBox.innerHTML = `<ul>${getItemUtensil(utensils)}</ul>`;
+  });
+  chevron.addEventListener("click", (e) => {
+    dropdownUtensilsIsClosed = true;
+    document.getElementById("search-utensils").style.display = "none";
+    document.getElementById("listbox-nameUtensils").style.display = "block";
+    dropdownUtensils.classList.remove("utensilsOpen");
+    listBox.innerHTML = "";
   });
 }
 

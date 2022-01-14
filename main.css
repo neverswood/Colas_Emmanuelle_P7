@@ -57,8 +57,9 @@
 
 .dropdown-listbox__name {
   display: flex;
-  align-items: center;
-  margin: 18px 0;
+  padding: 20px 52px 20px 20px;
+  position: absolute;
+  left: 0;
 }
 
 .dropdown_listbox i {
@@ -84,9 +85,13 @@
 
 .utensilsOpen {
   background-color: tomato;
-  max-width: 667px;
+  width: 667px;
   height: 397px;
   z-index: 1;
+}
+
+#chevron {
+  padding: 20px;
 }
 
 .utensils {
@@ -94,10 +99,40 @@
   z-index: 1;
 }
 
+#input-utensils {
+  width: 600px;
+  background-color: tomato;
+  color: white;
+  border: none;
+  padding: 17px 0;
+}
+
+#input-utensils::placeholder {
+  color: #f0eeee;
+}
+
+#listbox-utensils {
+  column-count: 3;
+}
+
+#listbox-utensils ul {
+  list-style: none;
+  padding: 0;
+}
+
 .search-ingredients,
 .search-device,
 .search-utensils {
   display: none;
+  font-size: 18px;
+}
+
+.search-utensils {
+  background-color: tomato;
+  z-index: 1;
+  width: 667px;
+  position: relative;
+  right: 15px;
 }
 
 .dropdown-listbox__name-close {
