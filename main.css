@@ -48,6 +48,11 @@
   margin: 0;
 }
 
+.dropdown ul {
+  list-style: none;
+  padding: 0;
+}
+
 .dropdown_listbox {
   height: 60px;
   width: 135px;
@@ -58,66 +63,62 @@
 .dropdown-listbox__name {
   display: flex;
   padding: 20px 52px 20px 20px;
-  position: absolute;
-  left: 0;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .dropdown_listbox i {
   position: absolute;
   right: 10px;
-  top: 22px;
 }
 
-.ingredients {
-  background-color: rgb(35, 119, 245);
-}
-
-.device {
-  background-color: rgb(151, 229, 151);
-}
-
-.deviceOpen {
-  background-color: rgb(151, 229, 151);
-  max-width: 667px;
-  height: 397px;
-  z-index: 1;
-}
-
-.utensilsOpen {
-  background-color: tomato;
-  width: 667px;
-  height: 397px;
-  z-index: 1;
-}
-
-#chevron {
+.fa-chevron-up {
   padding: 20px;
 }
 
+.ingredients,
+.device,
 .utensils {
-  background-color: tomato;
   z-index: 1;
 }
 
-#input-utensils {
-  width: 600px;
+.ingredients,
+#input-ingredients,
+.search-ingredients {
+  background-color: rgb(35, 119, 245);
+}
+
+.device,
+#input-device,
+.search-device {
+  background-color: rgb(151, 229, 151);
+}
+
+.utensils,
+#input-utensils,
+.search-utensils {
   background-color: tomato;
+}
+
+#input-utensils,
+#input-device,
+#input-ingredients {
+  width: 600px;
   color: white;
   border: none;
   padding: 17px 0;
 }
 
-#input-utensils::placeholder {
+#input-utensils::placeholder,
+#input-device::placeholder,
+#input-ingredients::placeholder {
   color: #f0eeee;
 }
 
-#listbox-utensils {
+#listbox-utensils,
+#listbox-devices,
+#listbox-ingredients {
   column-count: 3;
-}
-
-#listbox-utensils ul {
-  list-style: none;
-  padding: 0;
 }
 
 .search-ingredients,
@@ -125,14 +126,12 @@
 .search-utensils {
   display: none;
   font-size: 18px;
-}
-
-.search-utensils {
-  background-color: tomato;
+  padding: 0 0 15px 15px;
   z-index: 1;
   width: 667px;
   position: relative;
   right: 15px;
+  border-radius: 5px;
 }
 
 .dropdown-listbox__name-close {
