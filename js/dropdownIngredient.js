@@ -25,17 +25,17 @@ export function dropdownIngredients() {
   const dropdownIngredients = document.getElementById("listbox-nameIngredient");
   const chevron = document.getElementById("chevron1");
   const listBox = document.getElementById("listbox-ingredients");
-  dropdownIngredients.addEventListener("click", (e) => {
+  dropdownIngredients.addEventListener("click", () => {
     dropdownIngredientsIsClosed = false;
     const ingredients = [...new Set(getIngredients())];
     document.getElementById("search-ingredients").style.display = "block";
     document.getElementById("listbox-nameIngredient").style.display = "none";
     listBox.innerHTML = `<ul>${getItemIngredient(ingredients)}</ul>`;
   });
-  chevron.addEventListener("click", (e) => {
+  chevron.addEventListener("click", () => {
     dropdownIngredientsIsClosed = true;
     document.getElementById("search-Ingredients").style.display = "none";
-    document.getElementById("listbox-nameIngredients").style.display = "block";
+    document.getElementById("listbox-nameIngredient").style.display = "block";
     listBox.innerHTML = "";
   });
 }
