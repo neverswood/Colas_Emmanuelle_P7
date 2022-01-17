@@ -1,6 +1,7 @@
 import { recipes } from "./data/recipes.js";
 import { dropdownUtensils } from "./dropdownUtensil.js";
 import { dropdownDevices } from "./dropdownDevice.js";
+import { dropdownIngredients } from "./dropdownIngredient.js";
 
 function displayIngredients(ingredients) {
   let item = "";
@@ -141,6 +142,7 @@ function index() {
   //dropdown();
   dropdownDevices();
   dropdownUtensils();
+  dropdownIngredients();
 }
 
 index();

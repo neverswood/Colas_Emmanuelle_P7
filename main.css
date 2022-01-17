@@ -51,6 +51,7 @@
 .dropdown ul {
   list-style: none;
   padding: 0;
+  line-height: 30px;
 }
 
 .dropdown_listbox {

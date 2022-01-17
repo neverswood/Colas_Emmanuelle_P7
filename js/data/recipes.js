@@ -60,7 +60,7 @@ export const recipes = [
         quantity: 5,
       },
       {
-        ingredient: "Lait de Coco",
+        ingredient: "Lait de Coco", //
         quantity: 100,
         unit: "ml",
       },
