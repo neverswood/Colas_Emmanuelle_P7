@@ -36,7 +36,7 @@ export function dropdownDevices() {
   chevron.addEventListener("click", (e) => {
     dropdownDeviceIsClosed = true;
     document.getElementById("search-device").style.display = "none";
-    document.getElementById("listbox-nameDevice").style.display = "block";
+    document.getElementById("listbox-nameDevice").style.display = "flex";
     //dropdownDevices.classList.remove("devicesOpen");
     listBox.innerHTML = "";
   });

@@ -36,7 +36,7 @@ export function dropdownUtensils() {
   chevron.addEventListener("click", (e) => {
     dropdownUtensilsIsClosed = true;
     document.getElementById("search-utensils").style.display = "none";
-    document.getElementById("listbox-nameUtensils").style.display = "block";
+    document.getElementById("listbox-nameUtensils").style.display = "flex";
     //dropdownUtensils.classList.remove("utensilsOpen");
     listBox.innerHTML = "";
   });
