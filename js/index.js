@@ -2,6 +2,7 @@ import { recipes } from "./data/recipes.js";
 import { dropdownUtensils } from "./dropdownUtensil.js";
 import { dropdownDevices } from "./dropdownDevice.js";
 import { dropdownIngredients } from "./dropdownIngredient.js";
+import { displayRecipes } from "./interface.js";
 
 function keyWord() {
   let inputSearch = document.getElementById("searchbar");
