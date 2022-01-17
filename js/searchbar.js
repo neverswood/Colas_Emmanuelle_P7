@@ -43,17 +43,31 @@ function displayRecipes(recipe) {
 
 function keyWord(ingredients) {
   let inputSearch = document.getElementById("searchbar");
+
   inputSearch.addEventListener("keyup", () => {
     console.log(inputSearch.value);
+
     if (inputSearch.value.length >= 3) {
       for (let index = 0; index < recipes.length; index++) {
+        const lesingredients = recipes[index].ingredients;
+        for (let i = 0; i < lesingredients.length; i++) {
+          var ingredientRecipeExist = lesingredients[i].ingredient
+            .toLowerCase()
+            .indexOf(inputSearch.value.toLowerCase());
+        }
+        console.log("ing", ingredientRecipeExist);
         const nameRecipeExist = recipes[index].name
           .toLowerCase()
           .indexOf(inputSearch.value.toLowerCase());
+        console.log("name", nameRecipeExist);
         const descriptionRecipeExist = recipes[index].description
           .toLowerCase()
           .indexOf(inputSearch.value.toLowerCase());
-        if (nameRecipeExist == -1 && descriptionRecipeExist == -1) {
+        if (
+          nameRecipeExist == -1 &&
+          descriptionRecipeExist == -1 &&
+          ingredientRecipeExist == -1
+        ) {
           document.getElementsByClassName("col-md-4")[index].style.display =
             "none";
           let containerItem = document.getElementById("container-item");
@@ -62,7 +76,7 @@ function keyWord(ingredients) {
             "Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc.";
           containerItem.appendChild(message);
         }
-        console.log(nameRecipeExist.length);
+
         //else if (nameRecipeExist.length == -1) {// rien ne correspond, creer div et écris blabla
         // console.log("lol");
         ///}
@@ -74,6 +88,7 @@ function keyWord(ingredients) {
       }*/
     }
   });
+
   console.log(inputSearch);
 }
 console.log(document.getElementsByClassName("container-item__recipe"));

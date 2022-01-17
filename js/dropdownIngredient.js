@@ -34,7 +34,7 @@ export function dropdownIngredients() {
   });
   chevron.addEventListener("click", () => {
     dropdownIngredientsIsClosed = true;
-    document.getElementById("search-Ingredients").style.display = "none";
+    document.getElementById("search-ingredients").style.display = "none";
     document.getElementById("listbox-nameIngredient").style.display = "flex";
     listBox.innerHTML = "";
   });
