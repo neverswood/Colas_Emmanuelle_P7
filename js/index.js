@@ -93,60 +93,6 @@ function keyWord(ingredients) {
 }
 console.log(document.getElementsByClassName("container-item__recipe"));
 
-/*function dropdown(index) {
-  let dropdownIngredients = document.getElementById("dropdownIngredients");
-  dropdownIngredients.addEventListener("click", () => {
-    document.getElementById("search-ingredients").style.display = "block";
-    document.querySelector(".dropdown-listbox__name").style.display = "none";
-    displayIngredients();
-    const listBox = document.getElementById("listbox-ingredients");
-    const ulListBox = document.createElement("ul");
-    const templateListBox = `
-    <li>${ingredients[index].ingredient}</li>
-    `;
-
-    listBox.appendChild(ulListBox);
-    ulListBox.innerHTML = templateListBox;
-    console.log();
-  });
-}*/
-///////////////////////////////////////
-
-/////////////////////////////////
-/*function getAppliances() {
-  let appliances = new Set();
-  for (let index = 0; index < recipes.length; index++) {
-    appliances.add(recipes[index].appliance);
-  }
-  return appliances;
-}
-
-function getItemAppliance(appliances) {
-  let item = "";
-  for (let index = 0; index < appliances.length; index++) {
-    item += `<li>${appliances[index]}</li>`;
-  }
-  return item;
-}
-
-function dropdownDevice() {
-  const dropdownDevice = document.getElementById("dropdownDevice");
-  dropdownDevice.addEventListener("click", () => {
-    const appliances = getAppliances();
-    document.getElementById("search-device").style.display = "block";
-    document.getElementById("listbox-nameDevice").style.display = "none";
-    dropdownDevice.className = "deviceOpen";
-    const listBox = document.getElementById("listbox-device");
-    const ulListBox = document.createElement("ul");
-    const templateListBox = getItemAppliance(Array.from(appliances));
-
-    listBox.appendChild(ulListBox);
-    ulListBox.innerHTML = templateListBox;
-    console.log(getItemAppliance(Array.from(appliances)));
-  });
-}*/
-///////////////////////////////////
-
 function index() {
   for (let index = 0; index < recipes.length; index++) {
     // recipes est un tableau
