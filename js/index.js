@@ -3,50 +3,9 @@ import { dropdownUtensils } from "./dropdownUtensil.js";
 import { dropdownDevices } from "./dropdownDevice.js";
 import { dropdownIngredients } from "./dropdownIngredient.js";
 
-function displayIngredients(ingredients) {
-  let item = "";
-  for (let index = 0; index < ingredients.length; index++) {
-    item += `<li>${ingredients[index].ingredient}: 
-    <span>${ingredients[index].quantity ?? ""} ${
-      ingredients[index].unit ?? ""
-    }</span></li>`;
-  }
-  return item;
-}
-//}
-
-function displayRecipes(recipe) {
-  const containerRecipe = document.getElementById("container-item");
-  const containerDiv = document.createElement("div");
-  containerDiv.setAttribute("class", "col-md-4");
-  const templateRecipe = `
-        <div class="container-item__recipe" id="${recipe.id}">
-        <div class="divEmpty"></div>
-        <div class="recipe">
-        <div class="recipe__header">
-        <h3>${recipe.name}</h3>
-        <span><i class="far fa-clock"></i> ${recipe.time} min</span>
-        </div>
-        <div class="recipe__explanation">
-        <div class="recipe__ingrédients">
-        ${displayIngredients(recipe.ingredients)}
-        </div>
-        <div class="recipe__description">
-        ${recipe.description}...</div>
-        </div>
-        </div>
-        </div>
-        `;
-  containerRecipe.appendChild(containerDiv);
-  containerDiv.innerHTML = templateRecipe;
-}
-
-function keyWord(ingredients) {
+function keyWord() {
   let inputSearch = document.getElementById("searchbar");
-
   inputSearch.addEventListener("keyup", () => {
-    console.log(inputSearch.value);
-
     if (inputSearch.value.length >= 3) {
       for (let index = 0; index < recipes.length; index++) {
         const lesingredients = recipes[index].ingredients;
@@ -55,11 +14,9 @@ function keyWord(ingredients) {
             .toLowerCase()
             .indexOf(inputSearch.value.toLowerCase());
         }
-        console.log("ing", ingredientRecipeExist);
         const nameRecipeExist = recipes[index].name
           .toLowerCase()
           .indexOf(inputSearch.value.toLowerCase());
-        console.log("name", nameRecipeExist);
         const descriptionRecipeExist = recipes[index].description
           .toLowerCase()
           .indexOf(inputSearch.value.toLowerCase());
@@ -76,22 +33,10 @@ function keyWord(ingredients) {
             "Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc.";
           containerItem.appendChild(message);
         }
-
-        //else if (nameRecipeExist.length == -1) {// rien ne correspond, creer div et écris blabla
-        // console.log("lol");
-        ///}
       }
-      /*console.log(ingredients.length);
-      for (let index = 0; index < ingredients.length; index++) {
-        const ingredientRecipeExist = ingredients[index].ingredient;
-        console.log("ingrdient");
-      }*/
     }
   });
-
-  console.log(inputSearch);
 }
-console.log(document.getElementsByClassName("container-item__recipe"));
 
 function index() {
   for (let index = 0; index < recipes.length; index++) {
