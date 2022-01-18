@@ -14,7 +14,7 @@ function getIngredients() {
 function getItemIngredient(ingredient) {
   let item = "";
   for (let index = 0; index < ingredient.length; index++) {
-    item += `<li>${ingredient[index]}</li>`;
+    item += `<li class="listbox">${ingredient[index]}</li>`;
   }
   return item;
 }
@@ -42,23 +42,33 @@ export function dropdownIngredients() {
 
 export function filterIngredient() {
   let inputSearch = document.getElementById("input-ingredients");
+  let listBoxLi = document.getElementsByClassName("listbox");
   inputSearch.addEventListener("keyup", () => {
     if (inputSearch.value.length >= 3) {
-      for (let index = 0; index < recipes.length; index++) {
-        const ingredientRecipeExist = recipes[index].ingredients.indexOf(
-          inputSearch.value.toLowerCase()
-        );
-        if (ingredientRecipeExist == -1) {
-          document.querySelector(".listbox").style.display = "none";
-          document.getElementsByClassName("col-md-4")[index].style.display =
-            "none";
-          let containerItem = document.getElementById("container-item");
-          let message = document.createElement("div");
-          message.innerHTML =
-            "Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc.";
-          containerItem.appendChild(message);
+      for (let index = 0; index < listBoxLi.length; index++) {
+        if (
+          !listBoxLi[index].innerHTML.toLowerCase().includes(inputSearch.value)
+        ) {
+          listBoxLi[index].style.display = "none";
+        } else {
+          listBoxLi[index].style.display = "list-item";
         }
       }
     }
   });
 }
+
+/*  if (ingredientRecipeExist == -1) {
+        document.querySelector(".listbox").style.display = "none";
+        document.getElementsByClassName("col-md-4")[index].style.display =
+          "none";
+        let containerItem = document.getElementById("container-item");
+        let message = document.createElement("div");
+        message.innerHTML =
+          "Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc.";
+        containerItem.appendChild(message);
+      }
+    }
+  }
+});
+}*/

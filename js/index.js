@@ -1,7 +1,7 @@
 import { recipes } from "./data/recipes.js";
 import { dropdownUtensils } from "./dropdownUtensil.js";
 import { dropdownDevices, filterDevice } from "./dropdownDevice.js";
-import { dropdownIngredients } from "./dropdownIngredient.js";
+import { dropdownIngredients, filterIngredient } from "./dropdownIngredient.js";
 import { displayRecipes } from "./interface.js";
 import { filterUtensil } from "./dropdownUtensil.js";
 
@@ -54,6 +54,7 @@ function index() {
   dropdownIngredients();
   filterUtensil();
   filterDevice();
+  filterIngredient();
 }
 
 index();
