@@ -13,7 +13,7 @@ function getUtensils() {
 function getItemUtensil(utensils) {
   let item = "";
   for (let index = 0; index < utensils.length; index++) {
-    item += `<li>${utensils[index]}</li>`;
+    item += `<li class="listbox">${utensils[index]}</li>`;
   }
   return item;
 }
@@ -39,5 +39,28 @@ export function dropdownUtensils() {
     document.getElementById("listbox-nameUtensils").style.display = "flex";
     //dropdownUtensils.classList.remove("utensilsOpen");
     listBox.innerHTML = "";
+  });
+}
+
+export function filterUtensil() {
+  let inputSearch = document.getElementById("input-utensils");
+  inputSearch.addEventListener("keyup", () => {
+    if (inputSearch.value.length >= 3) {
+      for (let index = 0; index < recipes.length; index++) {
+        const utensilRecipeExist = recipes[index].ustensils.indexOf(
+          inputSearch.value.toLowerCase()
+        );
+        if (utensilRecipeExist == -1) {
+          document.querySelector(".listbox").style.display = "none";
+          document.getElementsByClassName("col-md-4")[index].style.display =
+            "none";
+          let containerItem = document.getElementById("container-item");
+          let message = document.createElement("div");
+          message.innerHTML =
+            "Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc.";
+          containerItem.appendChild(message);
+        }
+      }
+    }
   });
 }

@@ -1,8 +1,9 @@
 import { recipes } from "./data/recipes.js";
 import { dropdownUtensils } from "./dropdownUtensil.js";
-import { dropdownDevices } from "./dropdownDevice.js";
+import { dropdownDevices, filterDevice } from "./dropdownDevice.js";
 import { dropdownIngredients } from "./dropdownIngredient.js";
 import { displayRecipes } from "./interface.js";
+import { filterUtensil } from "./dropdownUtensil.js";
 
 function keyWord() {
   let inputSearch = document.getElementById("searchbar");
@@ -21,6 +22,7 @@ function keyWord() {
         const descriptionRecipeExist = recipes[index].description
           .toLowerCase()
           .indexOf(inputSearch.value.toLowerCase());
+        console.log(nameRecipeExist);
         if (
           nameRecipeExist == -1 &&
           descriptionRecipeExist == -1 &&
@@ -50,6 +52,8 @@ function index() {
   dropdownDevices();
   dropdownUtensils();
   dropdownIngredients();
+  filterUtensil();
+  filterDevice();
 }
 
 index();

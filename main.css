@@ -116,6 +116,12 @@
   color: #f0eeee;
 }
 
+#input-utensils:focus,
+#input-device:focus,
+#input-ingredients:focus {
+  outline: none;
+}
+
 #listbox-utensils,
 #listbox-devices,
 #listbox-ingredients {
@@ -141,6 +147,10 @@
 
 .search-open {
   display: block;
+}
+
+.listbox {
+  display: list-item;
 }
 
 /* recipe item */

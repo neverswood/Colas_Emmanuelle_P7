@@ -39,3 +39,26 @@ export function dropdownIngredients() {
     listBox.innerHTML = "";
   });
 }
+
+export function filterIngredient() {
+  let inputSearch = document.getElementById("input-ingredients");
+  inputSearch.addEventListener("keyup", () => {
+    if (inputSearch.value.length >= 3) {
+      for (let index = 0; index < recipes.length; index++) {
+        const ingredientRecipeExist = recipes[index].ingredients.indexOf(
+          inputSearch.value.toLowerCase()
+        );
+        if (ingredientRecipeExist == -1) {
+          document.querySelector(".listbox").style.display = "none";
+          document.getElementsByClassName("col-md-4")[index].style.display =
+            "none";
+          let containerItem = document.getElementById("container-item");
+          let message = document.createElement("div");
+          message.innerHTML =
+            "Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc.";
+          containerItem.appendChild(message);
+        }
+      }
+    }
+  });
+}
