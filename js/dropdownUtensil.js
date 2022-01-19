@@ -1,4 +1,5 @@
 import { recipes } from "./data/recipes.js";
+import { getItemUtensil } from "./interface.js";
 
 function getUtensils() {
   let ustensilsByRecipes = [];
@@ -10,13 +11,14 @@ function getUtensils() {
   return new Set(allUstensils);
 }
 
+/*
 function getItemUtensil(utensils) {
   let item = "";
   for (let index = 0; index < utensils.length; index++) {
     item += `<li class="listbox">${utensils[index]}</li>`;
   }
   return item;
-}
+}*/
 
 var dropdownUtensilsIsClosed = true;
 
@@ -45,7 +47,6 @@ export function dropdownUtensils() {
 export function filterUtensil() {
   let inputSearch = document.getElementById("input-utensils");
   let listBoxLi = document.getElementsByClassName("listbox");
-
   inputSearch.addEventListener("keyup", () => {
     if (inputSearch.value.length >= 3) {
       for (let index = 0; index < listBoxLi.length; index++) {

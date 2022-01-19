@@ -1,4 +1,5 @@
 import { recipes } from "./data/recipes.js";
+import { getItemIngredient } from "./interface.js";
 
 function getIngredients() {
   let ingredientByRecipes = [];
@@ -9,14 +10,6 @@ function getIngredients() {
     }
   }
   return new Set(ingredientByRecipes);
-}
-
-function getItemIngredient(ingredient) {
-  let item = "";
-  for (let index = 0; index < ingredient.length; index++) {
-    item += `<li class="listbox">${ingredient[index]}</li>`;
-  }
-  return item;
 }
 
 var dropdownIngredientsIsClosed = true;

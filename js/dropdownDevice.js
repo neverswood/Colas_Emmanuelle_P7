@@ -1,4 +1,5 @@
 import { recipes } from "./data/recipes.js";
+import { getItemDevice } from "./interface.js";
 
 function getDevice() {
   let deviceByRecipes = [];
@@ -8,14 +9,6 @@ function getDevice() {
   const allDevices = deviceByRecipes.flat();
 
   return new Set(allDevices);
-}
-
-function getItemDevice(devices) {
-  let item = "";
-  for (let index = 0; index < devices.length; index++) {
-    item += `<li class="listbox">${devices[index]}</li>`;
-  }
-  return item;
 }
 
 var dropdownDeviceIsClosed = true;
