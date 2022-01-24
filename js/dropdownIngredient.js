@@ -52,9 +52,9 @@ export function filterIngredient() {
   });
 }
 
-export function filterTagUtensil(event) {
+export function filterTagIngredient(event) {
   // quand je clic sur un element de la liste il s'affiche en tag
-  let listBox = document.getElementById("listbox-utensils");
+  let listBox = document.getElementById("listbox-ingredients");
   let listBoxLi = document.getElementsByClassName("listbox");
   console.log("listbox", listBoxLi);
   console.log("bob");
@@ -67,7 +67,7 @@ export function filterTagUtensil(event) {
 
       let tag = document.getElementById("tag");
       let spanTag = document.createElement("span");
-      spanTag.setAttribute("class", "tag-utensil");
+      spanTag.setAttribute("class", "tag-ingredient");
 
       tag.appendChild(spanTag);
       spanTag.innerHTML = event.target.textContent;
