@@ -1,5 +1,6 @@
 import { recipes } from "./data/recipes.js";
 import { getItemUtensil } from "./interface.js";
+import { filterTagUtensil } from "./tags.js";
 console.log(document.getElementsByClassName("listbox"));
 
 export function getUtensils() {
@@ -68,22 +69,6 @@ export function filterUtensil() {
       }
     }
   });
-}
-
-export function filterTagUtensil() {
-  // quand je clic sur un element de la liste il s'affiche en tag
-  let listBox = document.getElementById("listbox-utensils");
-  let listBoxLi = document.getElementsByClassName("listbox");
-  let list = listBox.querySelectorAll("li");
-  for (let index = 0; index < list.length; index++) {
-    listBoxLi[index].addEventListener("click", (event) => {
-      let tag = document.getElementById("tag");
-      let spanTag = document.createElement("span");
-      spanTag.setAttribute("class", "tag-utensil");
-      tag.appendChild(spanTag);
-      spanTag.innerHTML = event.target.textContent;
-    });
-  }
 }
 
 /*export function keyWordUtensil() {
