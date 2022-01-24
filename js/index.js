@@ -1,5 +1,5 @@
 import { recipes } from "./data/recipes.js";
-import { dropdownUtensils, filterTagUtensil } from "./dropdownUtensil.js";
+import { dropdownUtensils } from "./dropdownUtensil.js";
 import { dropdownDevices, filterDevice } from "./dropdownDevice.js";
 import { dropdownIngredients, filterIngredient } from "./dropdownIngredient.js";
 import { displayRecipes } from "./interface.js";

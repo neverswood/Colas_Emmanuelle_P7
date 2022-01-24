@@ -9,7 +9,8 @@ export function filterTagUtensil() {
       let spanTag = document.createElement("span");
       spanTag.setAttribute("class", "tag-utensil");
       tag.appendChild(spanTag);
-      spanTag.innerHTML = event.target.textContent;
+      spanTag.innerHTML =
+        event.target.textContent + `<i class="far fa-times-circle"></i>`;
     });
   }
 }
@@ -25,7 +26,8 @@ export function filterTagIngredient() {
       let spanTag = document.createElement("span");
       spanTag.setAttribute("class", "tag-ingredient");
       tag.appendChild(spanTag);
-      spanTag.innerHTML = event.target.textContent;
+      spanTag.innerHTML =
+        event.target.textContent + `<i class="far fa-times-circle"></i>`;
     });
   }
 }
@@ -41,7 +43,8 @@ export function filterTagDevice() {
       let spanTag = document.createElement("span");
       spanTag.setAttribute("class", "tag-device");
       tag.appendChild(spanTag);
-      spanTag.innerHTML = event.target.textContent;
+      spanTag.innerHTML =
+        event.target.textContent + `<i class="far fa-times-circle"></i>`;
     });
   }
 }
