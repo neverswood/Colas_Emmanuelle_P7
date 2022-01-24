@@ -24,6 +24,7 @@ export function dropdownIngredients() {
     document.getElementById("search-ingredients").style.display = "block";
     document.getElementById("listbox-nameIngredient").style.display = "none";
     listBox.innerHTML = `<ul>${getItemIngredient(ingredients)}</ul>`;
+    filterTagIngredient();
   });
   chevron.addEventListener("click", () => {
     dropdownIngredientsIsClosed = true;
@@ -56,23 +57,14 @@ export function filterTagIngredient(event) {
   // quand je clic sur un element de la liste il s'affiche en tag
   let listBox = document.getElementById("listbox-ingredients");
   let listBoxLi = document.getElementsByClassName("listbox");
-  console.log("listbox", listBoxLi);
-  console.log("bob");
   let list = listBox.querySelectorAll("li");
-  console.log("list", list);
   for (let index = 0; index < list.length; index++) {
     listBoxLi[index].addEventListener("click", (event) => {
-      console.log("rtu", event.target.innerText);
-      console.log("rtu2", event.target.textContent);
-
       let tag = document.getElementById("tag");
       let spanTag = document.createElement("span");
       spanTag.setAttribute("class", "tag-ingredient");
-
       tag.appendChild(spanTag);
       spanTag.innerHTML = event.target.textContent;
-
-      console.log("popi", listBoxLi[index]);
     });
   }
 }
