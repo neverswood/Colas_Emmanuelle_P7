@@ -53,7 +53,7 @@ export function filterIngredient() {
   });
 }
 
-export function filterTagIngredient(event) {
+export function filterTagIngredient() {
   // quand je clic sur un element de la liste il s'affiche en tag
   let listBox = document.getElementById("listbox-ingredients");
   let listBoxLi = document.getElementsByClassName("listbox");
