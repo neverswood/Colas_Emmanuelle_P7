@@ -1,14 +1,15 @@
 import { recipes } from "./data/recipes.js";
 import { getItemUtensil } from "./interface.js";
+console.log(document.getElementsByClassName("listbox"));
 
-function getUtensils() {
+export function getUtensils() {
   let ustensilsByRecipes = [];
   for (let index = 0; index < recipes.length; index++) {
     ustensilsByRecipes.push(recipes[index].ustensils);
   }
   const allUstensils = ustensilsByRecipes.flat();
-
-  return new Set(allUstensils);
+  console.log("a", [...new Set(allUstensils)]);
+  return [...new Set(allUstensils)];
 }
 
 /*
@@ -23,17 +24,19 @@ function getItemUtensil(utensils) {
 var dropdownUtensilsIsClosed = true;
 
 export function dropdownUtensils() {
+  //m'affiche la liste de tous les ustensiles
   const dropdownUtensils = document.getElementById("listbox-nameUtensils");
   const chevron = document.getElementById("chevron3");
   const listBox = document.getElementById("listbox-utensils");
   dropdownUtensils.addEventListener("click", (e) => {
     dropdownUtensilsIsClosed = false;
-    const utensils = [...new Set(getUtensils())];
+    const utensils = getUtensils();
     document.getElementById("search-utensils").style.display = "block";
     document.getElementById("listbox-nameUtensils").style.display = "none";
     ///dropdownUtensils.classList.add("utensilsOpen");
-    listBox.innerHTML = `<ul>${getItemUtensil(utensils)}</ul>`;
+    listBox.innerHTML = `<ul id="listboxUl">${getItemUtensil(utensils)}</ul>`; //new set fonctionne pas
     console.log(chevron);
+    filterTagUtensil();
   });
   chevron.addEventListener("click", (e) => {
     dropdownUtensilsIsClosed = true;
@@ -44,14 +47,19 @@ export function dropdownUtensils() {
   });
 }
 
+let inputSearchUtensils = document.getElementById("input-utensils");
+
 export function filterUtensil() {
-  let inputSearch = document.getElementById("input-utensils");
+  // Quand je fais une recherche dans le dropdown, ça me laisse la liste correspondante
   let listBoxLi = document.getElementsByClassName("listbox");
-  inputSearch.addEventListener("keyup", () => {
-    if (inputSearch.value.length >= 3) {
+  console.log("lp", listBoxLi);
+  inputSearchUtensils.addEventListener("keyup", () => {
+    if (inputSearchUtensils.value.length >= 3) {
       for (let index = 0; index < listBoxLi.length; index++) {
         if (
-          !listBoxLi[index].innerHTML.toLowerCase().includes(inputSearch.value)
+          !listBoxLi[index].innerHTML
+            .toLowerCase()
+            .includes(inputSearchUtensils.value)
         ) {
           listBoxLi[index].style.display = "none";
         } else {
@@ -61,3 +69,43 @@ export function filterUtensil() {
     }
   });
 }
+
+export function filterTagUtensil(event) {
+  // quand je clic sur un element de la liste il s'affiche en tag
+  let listBox = document.getElementById("listbox-utensils");
+  let listBoxLi = document.getElementsByClassName("listbox");
+  let list = listBox.querySelectorAll("li");
+  for (let index = 0; index < list.length; index++) {
+    listBoxLi[index].addEventListener("click", (event) => {
+      document.getElementById("tag-utensil").className = "tag-utensil";
+      let tag = document.getElementById("tag");
+      let spanTag = document.createElement("span");
+      spanTag.setAttribute("class", "tag-utensil");
+      tag.appendChild(spanTag);
+      spanTag.innerHTML = event.target.textContent;
+    });
+  }
+}
+
+/*export function keyWordUtensil() {
+  // quand je fais une recherche dans le dropdown ça m'affiche les recettes correspondante aux ustensiles qui reste
+  inputSearchUtensils.addEventListener("keyup", () => {
+    if (inputSearchUtensils.value.length >= 3) {
+      for (let index = 0; index < recipes.length; index++) {
+        const utensils = getUtensils();
+
+        const listUtensils = utensils[index].indexOf(inputSearchUtensils.value);
+        console.log(listUtensils);
+        if (listUtensils == -1) {
+          document.getElementsByClassName("col-md-4")[index].style.display =
+            "none";
+          let containerItem = document.getElementById("container-item");
+          let message = document.createElement("div");
+          message.innerHTML =
+            "Aucune recette ne correspond à votre critère... vous pouvez chercher « tarte aux pommes », « poisson », etc.";
+          containerItem.appendChild(message);
+        }
+      }
+    }
+  });
+}*/

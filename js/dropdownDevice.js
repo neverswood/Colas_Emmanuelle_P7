@@ -50,7 +50,8 @@ export function filterDevice() {
       }
     }
   });
-  /*inputSearch.addEventListener("keyup", () => {
+}
+/*inputSearch.addEventListener("keyup", () => {
     if (inputSearch.value.length >= 3) {
       for (let index = 0; index < recipes.length; index++) {
         const deviceRecipeExist = recipes[index].appliances.indexOf(
@@ -72,4 +73,3 @@ export function filterDevice() {
       }
     }
   });*/
-}

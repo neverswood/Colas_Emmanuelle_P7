@@ -36,6 +36,7 @@ export function dropdownIngredients() {
 export function filterIngredient() {
   let inputSearch = document.getElementById("input-ingredients");
   let listBoxLi = document.getElementsByClassName("listbox");
+  console.log("ft", document.getElementsByClassName("listbox"));
   inputSearch.addEventListener("keyup", () => {
     if (inputSearch.value.length >= 3) {
       for (let index = 0; index < listBoxLi.length; index++) {
@@ -49,6 +50,31 @@ export function filterIngredient() {
       }
     }
   });
+}
+
+export function filterTagUtensil(event) {
+  // quand je clic sur un element de la liste il s'affiche en tag
+  let listBox = document.getElementById("listbox-utensils");
+  let listBoxLi = document.getElementsByClassName("listbox");
+  console.log("listbox", listBoxLi);
+  console.log("bob");
+  let list = listBox.querySelectorAll("li");
+  console.log("list", list);
+  for (let index = 0; index < list.length; index++) {
+    listBoxLi[index].addEventListener("click", (event) => {
+      console.log("rtu", event.target.innerText);
+      console.log("rtu2", event.target.textContent);
+
+      let tag = document.getElementById("tag");
+      let spanTag = document.createElement("span");
+      spanTag.setAttribute("class", "tag-utensil");
+
+      tag.appendChild(spanTag);
+      spanTag.innerHTML = event.target.textContent;
+
+      console.log("popi", listBoxLi[index]);
+    });
+  }
 }
 
 /*  if (ingredientRecipeExist == -1) {

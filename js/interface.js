@@ -58,3 +58,5 @@ export function getItemDevice(devices) {
   }
   return item;
 }
+
+console.log("loupo", document.getElementsByClassName("listbox"));

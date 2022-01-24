@@ -1,6 +1,9 @@
 import { recipes } from "./data/recipes.js";
+import { getUtensils } from "./dropdownUtensil.js";
 
 //// filtre avec barre de recherche
+console.log(document.getElementsByClassName("listbox"));
+
 export function keyWord() {
   let inputSearch = document.getElementById("searchbar");
   let listBoxLi = document.getElementsByClassName("listbox");
@@ -20,7 +23,10 @@ export function keyWord() {
         const descriptionRecipeExist = recipes[index].description
           .toLowerCase()
           .indexOf(inputSearch.value.toLowerCase());
-        console.log(nameRecipeExist);
+        console.log("index", nameRecipeExist.value);
+        for (let li = 0; li < listBoxLi.length; li++) {
+          console.log("dorloti");
+        }
         if (
           nameRecipeExist == -1 &&
           descriptionRecipeExist == -1 &&
@@ -36,38 +42,31 @@ export function keyWord() {
         }
       }
     }
-    if (inputSearch.value.length < 3) {
-      for (let index = 0; index < listBoxLi.length; index++) {
-        console.log("re", listBoxLi);
-
-        if (
-          listBoxLi[index].innerHTML.toLowerCase().includes(inputSearch.value)
-        ) {
-          listBoxLi[index].style.display = "none";
-        } else {
-          listBoxLi[index].style.display = "list-item";
-        }
-      }
-    }
   });
 }
 
-export function filterUtensilsearch() {
+export function filtersearch() {
   let inputSearch = document.getElementById("searchbar");
-  //let listBoxLi = document.getElementsByClassName("listbox");
-  /*inputSearch.addEventListener("keyup", () => {
+  console.log("re", document.getElementsByClassName("listbox"));
+  inputSearch.addEventListener("keydown", () => {
     console.log(document.getElementsByClassName("listbox"));
 
-    if (inputSearch.value.length >= 3) {
+    /*if (inputSearch.value.length >= 3) {
+      if (nameRecipeExist < 0 && descriptionRecipeExist < 0 &&
+        ingredientRecipeExist < 0) {
+        //filtre les dropdown
+      }
       for (let index = 0; index < listBoxLi.length; index++) {
         if (
-          !listBoxLi[index].innerHTML.toLowerCase().includes(inputSearch.value)
+          !listBoxLi[index].includes(nameRecipeExist.value) && !listBoxLi[index].includes(desciptionRecipeExist.value) && !listBoxLi[index].includes(ingredientRecipeExist.value)
         ) {
           listBoxLi[index].style.display = "none";
         } else {
           listBoxLi[index].style.display = "list-item";
         }
       }
-    }
-  });*/
+    }*/
+  });
 }
+
+//si des mots de la liste ne figure pas dans les recettes on les enleve

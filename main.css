@@ -77,11 +77,11 @@
   padding: 20px;
 }
 
-.ingredients,
+/*.ingredients,
 .device,
 .utensils {
   z-index: 1;
-}
+}*/
 
 .ingredients,
 #input-ingredients,
@@ -151,6 +151,30 @@
 
 .listbox {
   display: list-item;
+}
+
+.tag-ingredient {
+  background-color: rgb(35, 119, 245);
+  height: 107px;
+  width: 37px;
+  margin-left: 16px;
+  border-radius: 5px;
+}
+
+.tag-device {
+  background-color: rgb(151, 229, 151);
+  height: 107px;
+  width: 37px;
+  margin-left: 16px;
+  border-radius: 5px;
+}
+
+.tag-utensil {
+  background-color: tomato;
+  height: 40px;
+  width: 130px;
+  margin-left: 16px;
+  border-radius: 5px;
 }
 
 /* recipe item */
