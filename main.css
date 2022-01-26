@@ -153,23 +153,33 @@
   display: list-item;
 }
 
+#tag {
+  display: flex;
+}
+
 .tag-ingredient {
+  display: flex;
+  justify-content: space-between;
   background-color: rgb(35, 119, 245);
-  height: 107px;
-  width: 37px;
+  height: 40px;
+  width: 130px;
   margin-left: 16px;
   border-radius: 5px;
 }
 
 .tag-device {
+  display: flex;
+  justify-content: space-between;
   background-color: rgb(151, 229, 151);
-  height: 107px;
-  width: 37px;
+  height: 40px;
+  width: 130px;
   margin-left: 16px;
   border-radius: 5px;
 }
 
 .tag-utensil {
+  display: flex;
+  justify-content: space-between;
   background-color: tomato;
   height: 40px;
   width: 130px;

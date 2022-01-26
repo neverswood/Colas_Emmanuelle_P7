@@ -23,6 +23,7 @@ export function dropdownIngredients() {
     const ingredients = [...new Set(getIngredients())];
     document.getElementById("search-ingredients").style.display = "block";
     document.getElementById("listbox-nameIngredient").style.display = "none";
+    document.getElementById("dropdownIngredients").style.width = "667px";
     listBox.innerHTML = `<ul>${getItemIngredient(ingredients)}</ul>`;
     filterTagIngredient();
   });

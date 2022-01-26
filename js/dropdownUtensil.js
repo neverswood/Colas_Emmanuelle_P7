@@ -34,10 +34,13 @@ export function dropdownUtensils() {
     const utensils = getUtensils();
     document.getElementById("search-utensils").style.display = "block";
     document.getElementById("listbox-nameUtensils").style.display = "none";
+    document.getElementById("dropdownUtensils").style.width = "667px";
+
     ///dropdownUtensils.classList.add("utensilsOpen");
     listBox.innerHTML = `<ul id="listboxUl">${getItemUtensil(utensils)}</ul>`; //new set fonctionne pas
     console.log(chevron);
     filterTagUtensil();
+    closeDropdownInactive();
   });
   chevron.addEventListener("click", (e) => {
     dropdownUtensilsIsClosed = true;
@@ -93,3 +96,15 @@ export function filterUtensil() {
     }
   });
 }*/
+
+function closeDropdownInactive() {
+  let dropdown = document.querySelectorAll(".dropdown_listbox");
+  let dropdownSearch = document.querySelectorAll(".search-dropdown");
+  for (let index = 0; index < dropdown.length; index++) {
+    if (dropdownSearch[index].style.display === "block") {
+      dropdownSearch[index].style.display === "none";
+    }
+  }
+}
+
+//j'ai du mal avec l'élément courant, comment je peux écrire quand j'ai ouvert ce dropdown les autres se ferment. car la j'ouvre mes dropdown et je n'ai pas la place de les avoirs tous ouvert
